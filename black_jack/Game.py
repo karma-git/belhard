@@ -27,6 +27,13 @@ class Game:
                 return True
 
     def _launching(self):
+
+        while True:
+            your_name = input('Hello, write your name ')
+            if your_name:
+                # Player.Player.name = your_name
+                break
+
         while True:
             bots_count = int(input('Hello, write bots count '))
             if bots_count <= self.max_pl_count - 1:  # self # Game #__name__
@@ -39,8 +46,9 @@ class Game:
             print(b, 'is created')
 
         self.player = Player.Player()
+        self.player.name = your_name
         self.player_pos = random.randint(0, len(self.players))
-        print('Your position is: ', self.player_pos)  # it needs to be deleted
+        print(f'{self.player} position is: ', self.player_pos)  # it needs to be deleted
         self.players.insert(self.player_pos, self.player)
 
     def ask_bet(self):
@@ -66,7 +74,7 @@ class Game:
     def remove_player(self, player):
         player.print_cards()
         if isinstance(player, Player.Player):
-            print('You are fall!')
+            print(f'{self.player} fall!')
         elif isinstance(player, Player.Bot):
             print(player, 'are fall')
         self.players.remove(player)
@@ -107,13 +115,13 @@ class Game:
                     if isinstance(player, Player.Bot):
                         print(MESSAGES.get('win').format(player))
                     elif isinstance(player, Player.Player):
-                        print('You are win')
+                        print(f'{self.player} are win')
 
                 elif player.full_points < self.dealer.full_points:
                     if isinstance(player, Player.Bot):
                         print(MESSAGES.get('lose').format(player))
                     elif isinstance(player, Player.Player):
-                        print('You are lose')
+                        print(f'{self.player} are lose')
             # check with each player
 
 

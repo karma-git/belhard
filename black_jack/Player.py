@@ -13,6 +13,7 @@ class AbstractPlayer(abc.ABC):
         self.bet = 0
         self.full_points = 0
         self.money = 100
+        self.name = None
 
     def change_points(self):
         self.full_points = sum([card.points for card in self.cards])
@@ -67,12 +68,18 @@ class Player(AbstractPlayer):
         else:
             return False
 
+    def get_name(self, name):
+        name = self.name
+
+    def __repr__(self):
+        return self.name
 
 class Bot(AbstractPlayer):
 
     def __init__(self):
         super().__init__()
         self.max_points = random.randint(17, 20)
+        self.name = random.choice(NAMES) + '_Bot'
 
     def change_bet(self, max_bet, min_bet):
         self.bet = random.randint(min_bet, max_bet)
@@ -86,7 +93,7 @@ class Bot(AbstractPlayer):
             return False
 
     def __repr__(self):
-        name = random.choice(NAMES) + '_Bot'
+        name = self.name
         return name
 
 
@@ -105,3 +112,7 @@ class Dealer(AbstractPlayer):
             return True
         else:
             return False
+
+    def __repr__(self):
+        self.name = 'Dealer'
+        return self.name
