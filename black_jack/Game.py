@@ -105,6 +105,12 @@ class Game:
     def check_winner(self):
         if self.dealer.full_points > 21:
             print(MESSAGES.get('dealer_fall'))
+
+            #fix bug when bots cards haven't been printed
+            for player in self.player:
+                if isinstance(player, Player.Bot):
+                    player.print_cards()
+
             for winner in self.players:
                 winner.money += winner.bet * 2
             # all win
@@ -144,6 +150,30 @@ class Game:
         # generating data for starting
         self._launching()
 
+        # while True:
+        #     # ask about bet
+        #     self.ask_bet()
+        #
+        #     # give first cards to the players
+        #     self.first_desc()
+        #
+        #     # print player cards after first deal
+        #     self.player.print_cards()
+        #
+        #     # ask_player_about_cards
+        #     self.ask_card()
+        #
+        #     self.play_with_dealer()
+        #
+        #     self.check_winner()
+        #
+        #     if not self._ask_starting(MESSAGES.get('rerun')):
+        #         break
+
+            # todo: change players pos
+            # todo: check all players for money
+            # todo:
+
         while True:
             # ask about bet
             self.ask_bet()
@@ -164,8 +194,3 @@ class Game:
             if not self._ask_starting(MESSAGES.get('rerun')):
                 break
 
-            # todo: change players pos
-            # todo: check all players for money
-            # todo:
-
-# Anya loh
