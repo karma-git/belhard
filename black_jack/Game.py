@@ -65,6 +65,10 @@ class Game:
         self.dealer.take_card(card)
         self.dealer.print_cards()
 
+        #tmp
+        for player in self.players:
+            player.print_cards()
+
     def check_stop(self, player):
         if player.full_points >= 21:
             return True
@@ -164,4 +168,4 @@ class Game:
             # todo: check all players for money
             # todo:
 
-Game.asd = 10
+# Anya loh
