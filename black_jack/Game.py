@@ -107,7 +107,7 @@ class Game:
             print(MESSAGES.get('dealer_fall'))
 
             #fix bug when bots cards haven't been printed
-            for player in self.player:
+            for player in self.players:
                 if isinstance(player, Player.Bot):
                     player.print_cards()
 
