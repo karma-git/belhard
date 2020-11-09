@@ -1,5 +1,6 @@
 import abc
 from Deck import Deck
+import colorama as clr
 import random
 from const import MESSAGES, NAMES
 from picture import CardPrinter, CardFromDeck
@@ -69,10 +70,10 @@ class Player(AbstractPlayer):
             return False
 
     def get_name(self, name):
-        name = self.name
+        name = clr.Fore.GREEN + self.name
 
     def __repr__(self):
-        return self.name
+        return clr.Fore.GREEN + self.name + clr.Style.RESET_ALL
 
 class Bot(AbstractPlayer):
 
