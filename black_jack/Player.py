@@ -35,7 +35,7 @@ class AbstractPlayer(abc.ABC):
         self.hand_printer()  # hand printer
         # for card in self.cards: # vs poocheridi
         #     print(card)
-        print('Full points: ', self.full_points)
+        print('Full points: ', self.full_points, '\n')
 
     def hand_printer(self):
         cards_list = list()
