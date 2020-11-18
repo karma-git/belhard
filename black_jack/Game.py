@@ -138,6 +138,7 @@ class Game:
 
 
     def play_with_dealer(self):
+
         while self.dealer.ask_card():
             card = self.deck.get_card()
             self.dealer.take_card(card)
