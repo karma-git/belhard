@@ -75,6 +75,7 @@ class Player(AbstractPlayer):
     def __repr__(self):
         return clr.Fore.GREEN + self.name + clr.Style.RESET_ALL
 
+
 class Bot(AbstractPlayer):
 
     def __init__(self):
