@@ -108,8 +108,10 @@ class Game:
 
             #fix bug when bots cards haven't been printed
             for player in self.players:
-                if isinstance(player, Player.Bot):
-                    player.print_cards()
+                # if isinstance(player, Player.Bot):
+                player.print_cards()
+
+                ######################
 
             for winner in self.players:
                 winner.money += winner.bet * 2
@@ -118,7 +120,7 @@ class Game:
             for player in self.players:
                 if player.full_points == self.dealer.full_points:
                     player.money += player.bet
-                    print(MESSAGES.get('equal').format(player=player,
+                    print(MESSAGES.get('eq').format(player=player,
                                                        points=player.full_points))
                 elif player.full_points > self.dealer.full_points:
                     player.money += player.bet * 2
@@ -194,3 +196,13 @@ class Game:
             if not self._ask_starting(MESSAGES.get('rerun')):
                 break
 
+
+#todo: Цикловую структуру
+# While True:
+
+#first desk
+# for player in players:
+#     player.get_card() # 2 karti
+#     player.print_card()
+
+#while not true:
