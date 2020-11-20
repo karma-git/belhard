@@ -1,8 +1,0 @@
-# Project exclude paths
-/venv/
-__pycache__
-build
-dist
-dist.zip
-main.spec
-venv
